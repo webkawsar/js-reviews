@@ -70,37 +70,26 @@ window.addEventListener("load", () => {
 
 // Next Button
 nextBtn.addEventListener('click', () => {
-  
-  if(currentItem < reviews.length - 1){
 
-    currentItem++;
-    const item = reviews[currentItem];
-    showperson(item);
+  currentItem++;
+  if(currentItem > reviews.length - 1){
+    currentItem = 0;
+  }
 
-  } else {
-
-    currentItem = 0
-    const item = reviews[currentItem];
-    showperson(item);
-  }  
+  const item = reviews[currentItem];
+  showperson(item);
 })
 
 // Prev Button
 prevBtn.addEventListener('click', () => {
  
-  if(currentItem > 0){
-
-    currentItem--;
-    const item = reviews[currentItem];
-    showperson(item);
-
-  } else {
-
+  currentItem--;
+  if(currentItem < 0){
     currentItem = reviews.length - 1;
-    const item = reviews[currentItem];
-    showperson(item);
   }
-
+  
+  const item = reviews[currentItem];
+  showperson(item);
 })
 
 
